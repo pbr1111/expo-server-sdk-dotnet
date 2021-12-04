@@ -1,0 +1,30 @@
+name: Publish NuGet package
+
+on: 
+  release: 
+    types: [published]
+  
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📩 Checkout code
+      uses: actions/checkout@v2
+
+    - name: 🧑‍🏭 Configure .NET version
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: 🗃️ Configure NuGet source
+      run: dotnet nuget add source --username pbr1111 --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/pbr1111/index.json"
+
+    - name: 🤞 Build
+      run: dotnet build src/ExpoServerSdk/ExpoServerSdk.csproj -c Release /p:CI=true
+
+    - name: 📦 Pack
+      run: dotnet pack src/ExpoServerSdk/ExpoServerSdk.csproj --no-build -c Release /p:CI=true /p:PackageVersion=${{ github.event.release.tag_name }}
+
+    - name: 📤 Push
+      run: dotnet nuget push "src/ExpoServerSdk/bin/Release/ExpoServerSdk.${{ github.event.release.tag_name }}.nupkg" --source "github"
