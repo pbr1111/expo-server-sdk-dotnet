@@ -6,7 +6,7 @@ using System.Net.Http.Json;
 
 namespace ExpoServerSdk;
 
-public class ExpoClient
+public class ExpoClient : IExpoClient
 {
     private const string PushSendPath = "/--/api/v2/push/send";
     private const string PushGetReceiptsPath = "/--/api/v2/push/getReceipts";
@@ -27,11 +27,7 @@ public class ExpoClient
     public async Task<U> PostAsync<T, U>(T request, string path)
     {
         var response = await _httpClient.PostAsJsonAsync(path, request, new JsonSerializerOptions(JsonSerializerDefaults.Web));
-        if (response.IsSuccessStatusCode)
-        {
-            return await response.Content.ReadFromJsonAsync<U>();
-        }
-        return default;
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadFromJsonAsync<U>();
     }
 }
-

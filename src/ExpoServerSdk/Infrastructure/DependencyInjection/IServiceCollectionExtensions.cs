@@ -17,7 +17,7 @@ public static class IServiceCollectionExtensions
 
     public static IServiceCollection AddExpoClient(this IServiceCollection services, ExpoClientOptions options)
     {
-        services.AddHttpClient<ExpoClient>(httpOptions =>
+        services.AddHttpClient<IExpoClient, ExpoClient>(httpOptions =>
         {
             httpOptions.BaseAddress = new Uri(BaseExpoUrl);
             if (!string.IsNullOrEmpty(options?.AccessToken))
@@ -46,4 +46,3 @@ public static class IServiceCollectionExtensions
             .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
     }
 }
-
