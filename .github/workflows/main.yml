@@ -1,0 +1,19 @@
+name: ExpoServerSdk Build
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs: 
+  build: 
+    name: 👷 Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📩 Checkout code
+      uses: actions/checkout@v2
+
+    - name: 🤞 Build
+      run: dotnet build src/ExpoServerSdk/ExpoServerSdk.csproj -c Release /p:CI=true
