@@ -1,5 +1,7 @@
 # Expo Server Client for .NET
 
+![Build status](https://github.com/pbr1111/expo-server-sdk-dotnet/actions/workflows/main.yml/badge.svg?branch=main)
+
 Server-side library for working with Expo using .NET.
 
 ## Features
