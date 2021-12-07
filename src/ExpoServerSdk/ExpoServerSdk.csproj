@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Title>ExpoServerSdk</Title>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Title>ExpoServer.Sdk</Title>
     <PackageTags>expo-push;push;expo-server;expo-api;</PackageTags>
     <Description>Server-side library for working with Expo using .NET</Description>
     <Authors>pbr1111</Authors>
     <RepositoryUrl>https://github.com/pbr1111/expo-server-sdk-dotnet</RepositoryUrl>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
