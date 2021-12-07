@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <Title>ExpoServer.Sdk</Title>
+    <Title>ExpoServerSdk</Title>
     <PackageTags>expo-push;push;expo-server;expo-api;</PackageTags>
     <Description>Server-side library for working with Expo using .NET</Description>
     <Authors>pbr1111</Authors>
