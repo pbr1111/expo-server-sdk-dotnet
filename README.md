@@ -1,8 +1,8 @@
 # Expo Server Client for .NET
 
 ![Build status](https://github.com/pbr1111/expo-server-sdk-dotnet/actions/workflows/main.yml/badge.svg?branch=main)
-![NuGet package](https://img.shields.io/nuget/v/ExpoServerSdk?label=ExpoServerSdk)
-![NuGet package downloads](https://img.shields.io/nuget/dt/ExpoServerSdk)
+[![NuGet package](https://img.shields.io/nuget/v/ExpoServerSdk?label=ExpoServerSdk)](https://www.nuget.org/packages/ExpoServerSdk/)
+[![NuGet package downloads](https://img.shields.io/nuget/dt/ExpoServerSdk)](https://www.nuget.org/packages/ExpoServerSdk/)
 
 Server-side library for working with Expo using .NET.
 
