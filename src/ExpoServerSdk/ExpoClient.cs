@@ -14,7 +14,7 @@ public class ExpoClient : IExpoClient
     {
         PropertyNameCaseInsensitive = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        NullValueHandling = NullValueHandling.Ignore
+        IgnoreNullValues = true
     };
 
     private readonly HttpClient _httpClient;
