@@ -10,6 +10,12 @@ public class ExpoClient : IExpoClient
 {
     private const string PushSendPath = "/--/api/v2/push/send";
     private const string PushGetReceiptsPath = "/--/api/v2/push/getReceipts";
+    private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
+    {
+        PropertyNameCaseInsensitive = true,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        IgnoreNullValues = true
+    };
 
     private readonly HttpClient _httpClient;
 
@@ -26,7 +32,7 @@ public class ExpoClient : IExpoClient
 
     public async Task<U> PostAsync<T, U>(T request, string path)
     {
-        var response = await _httpClient.PostAsJsonAsync(path, request, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+        var response = await _httpClient.PostAsJsonAsync(path, request, JsonOptions);
         response.EnsureSuccessStatusCode();
         return await response.Content.ReadFromJsonAsync<U>();
     }
