@@ -24,7 +24,7 @@ public record PushTicketRequest()
     public int? Badge { get; set; }
     public string? ChannelId { get; set; }
     public string? CategoryId { get; set; }
-    public boolean? MutableContent { get; set; }
+    public bool? MutableContent { get; set; }
 }
 
 public record PushTicketResponse()
