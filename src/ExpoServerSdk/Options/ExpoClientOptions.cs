@@ -2,7 +2,7 @@
 
 public record ExpoClientOptions()
 {
-    private const DefaultMaxConcurrentRequests = 6;
+    private const int DefaultMaxConcurrentRequests = 6;
     public static ExpoClientOptions Default = new ExpoClientOptions() { MaxConcurrentRequests = DefaultMaxConcurrentRequests };
 
     public string? AccessToken { get; set; }
