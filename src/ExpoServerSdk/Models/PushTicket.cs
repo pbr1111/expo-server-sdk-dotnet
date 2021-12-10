@@ -3,34 +3,45 @@ using System.Text.Json.Serialization;
 
 namespace ExpoServerSdk.Models;
 
-public record PushTicketDeliveryStatus(
-    [property: JsonPropertyName("status")] string DeliveryStatus,
-    [property: JsonPropertyName("message")] string DeliveryMessage,
-    [property: JsonPropertyName("details")] object DeliveryDetails);
+public record PushTicketDeliveryStatus()
+{
+    public string Status { get; set; }
+    public string Message { get; set; }
+    public object? Details { get; set; }
+}
 
-public record PushTicketRequest(
-    [property: JsonPropertyName("to")] List<string> PushTo,
-    [property: JsonPropertyName("data")] object PushData,
-    [property: JsonPropertyName("title")] string PushTitle,
-    [property: JsonPropertyName("body")] string PushBody,
-    [property: JsonPropertyName("ttl")] int? PushTTL,
-    [property: JsonPropertyName("expiration")] int? PushExpiration,
-    [property: JsonPropertyName("priority")] string PushPriority,
-    [property: JsonPropertyName("subtitle")] string PushSubTitle,
-    [property: JsonPropertyName("sound")] string PushSound,
-    [property: JsonPropertyName("badge")] int? PushBadgeCount,
-    [property: JsonPropertyName("channelId")] string PushChannelId);
+public record PushTicketRequest()
+{
+    public List<string> To { get; set; }
+    public object? Data { get; set; }
+    public string? Title { get; set; }
+    public string? Body { get; set; }
+    public int? Ttl { get; set; }
+    public int? Expiration { get; set; }
+    public string? Priority { get; set; }
+    public string? Subtitle { get; set; }
+    public string? Sound { get; set; }
+    public int? Badge { get; set; }
+    public string? ChannelId { get; set; }
+    public string? CategoryId { get; set; }
+    public boolean? MutableContent { get; set; }
+}
 
-public record PushTicketResponse(
-    [property: JsonPropertyName("data")] List<PushTicketStatus> PushTicketStatuses,
-    [property: JsonPropertyName("errors")] List<PushTicketErrors> PushTicketErrors);
+public record PushTicketResponse()
+{
+    public List<PushTicketStatus>? Data { get; set; }
+    public List<PushTickets>? Errors { get; set; }
+}
 
-public record PushTicketStatus(
-    [property: JsonPropertyName("status")] string TicketStatus,
-    [property: JsonPropertyName("id")] string TicketId,
-    [property: JsonPropertyName("message")] string TicketMessage,
-    [property: JsonPropertyName("details")] object TicketDetails);
+public record PushTicketStatus()
+{
+    public string Status { get; set; }
+    public string? Message { get; set; }
+    public object? Details { get; set; }
+}
 
-public record PushTicketErrors(
-    [property: JsonPropertyName("code")] string ErrorCode,
-    [property: JsonPropertyName("message")] string ErrorMessage);
+public record PushTicketErrors()
+{
+    public string Code { get; set; }
+    public string Message { get; set; }
+}
