@@ -3,13 +3,20 @@ using System.Text.Json.Serialization;
 
 namespace ExpoServerSdk.Models;
 
-public record PushReceiptRequest([property: JsonPropertyName("ids")] List<string> PushTicketIds);
+public record PushReceiptRequest()
+{
+    public List<string> Ids { get; set; } = default!;
+}
 
-public record PushReceiptResponse(
-    [property: JsonPropertyName("data")] Dictionary<string, PushTicketDeliveryStatus> PushTicketReceipts,
-    [property: JsonPropertyName("errors")] List<PushReceiptErrorInformation> ErrorInformations);
+public record PushReceiptResponse()
+{
+    public Dictionary<string, PushTicketDeliveryStatus> Data { get; set; } = default!;
+    public List<PushReceiptError>? Errors { get; set; }
+}
 
-public record PushReceiptErrorInformation(
-    [property: JsonPropertyName("code")] string ErrorCode,
-    [property: JsonPropertyName("message")] string ErrorMessage);
+public record PushReceiptError()
+{
+    public string Code { get; set; } = default!;
+    public string Message { get; set; } = default!;
+}
 
