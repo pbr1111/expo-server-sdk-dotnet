@@ -30,7 +30,7 @@ public record PushTicketRequest()
 public record PushTicketResponse()
 {
     public List<PushTicketStatus>? Data { get; set; }
-    public List<PushTicketErrors>? Errors { get; set; }
+    public List<PushTicketError>? Errors { get; set; }
 }
 
 public record PushTicketStatus()
@@ -40,7 +40,7 @@ public record PushTicketStatus()
     public object? Details { get; set; }
 }
 
-public record PushTicketErrors()
+public record PushTicketError()
 {
     public string Code { get; set; }
     public string Message { get; set; }
