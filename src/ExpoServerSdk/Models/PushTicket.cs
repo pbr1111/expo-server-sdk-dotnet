@@ -5,14 +5,14 @@ namespace ExpoServerSdk.Models;
 
 public record PushTicketDeliveryStatus()
 {
-    public string Status { get; set; }
-    public string Message { get; set; }
+    public string Status { get; set; } = default!;
+    public string Message { get; set; } = default!;
     public object? Details { get; set; }
 }
 
 public record PushTicketRequest()
 {
-    public List<string> To { get; set; }
+    public List<string> To { get; set; } = default!;
     public object? Data { get; set; }
     public string? Title { get; set; }
     public string? Body { get; set; }
@@ -35,13 +35,13 @@ public record PushTicketResponse()
 
 public record PushTicketStatus()
 {
-    public string Status { get; set; }
+    public string Status { get; set; } = default!;
     public string? Message { get; set; }
     public object? Details { get; set; }
 }
 
 public record PushTicketError()
 {
-    public string Code { get; set; }
-    public string Message { get; set; }
+    public string Code { get; set; } = default!;
+    public string Message { get; set; } = default!;
 }
