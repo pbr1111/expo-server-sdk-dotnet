@@ -8,7 +8,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: 🔍 Analyze
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -21,18 +21,18 @@ jobs:
         language: [ 'csharp' ]
 
     steps:
-    - name: Checkout repository
+    - name: 📩 Checkout code
       uses: actions/checkout@v3
 
-    - name: Initialize CodeQL
+    - name: 🧑‍🏭 Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
 
-    - name: Autobuild
+    - name: 🤞 Autobuild
       uses: github/codeql-action/autobuild@v2
 
-    - name: Perform CodeQL Analysis
+    - name: 🔍 Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
